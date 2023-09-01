@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+
+@font-face {
+  font-family: "Titlefont";
+  src: url('assets/font/MetalVengeanceItalic-owAdd.ttf');
+}
+
+:root {
+  /*** colors ***/
+  --font-color-main: rgb(212, 211, 211);
+  --background: rgba(42, 42, 42, 0.979);
+  /*** gradient ***/
+  --mygradient: linear-gradient(200deg, #dea349, #a5947a 82%);
+  --testgradient: linear-gradient(257.02deg, #FB8C36 15.46%, #FFDB5B 82.75%);
+  --myinvgradient: linear-gradient(200deg, #a5947a, #dea349 82%);
+  --textgradient: linear-gradient(190deg, #707070, #050505 82%);
+  --texthover: linear-gradient(180deg, #363636, #9c9c9c 100%);
+  /*** fonts ***/
+  --fontmain: 'Roboto', sans-serif;
+  --fontheadings: 'Permanent Marker', cursive;
+  /*** border-radius ***/
+  --border-radius: 1rem ;
+  --box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.265);
+}
+
+html, body{
+  font-family: var(--fontmain);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--font-color-main);
+  background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--fontheadings);
+}
+
+ul{
+  list-style-type: none;
+}
+
+h3{
+  font-family: 'Titlefont', cursive;
+  -webkit-text-stroke: 2px var(--font-color-main);
+  background: var(--myinvgradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
