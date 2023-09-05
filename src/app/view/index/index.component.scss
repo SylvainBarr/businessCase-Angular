@@ -1,0 +1,142 @@
+.presentation{
+  margin-bottom: 6rem;
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 1.3rem;
+
+  .presentation-head{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+}
+
+h2{
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+@media screen and (max-width:770px){
+  .presentation{
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+
+  h2{
+    font-size: 2rem;
+  }
+}
+
+.nfts{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  div{
+    margin-bottom: 1rem;
+    width: 30%;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    z-index: 1;
+
+    @media screen and (max-width:770px){
+      width: 48%;
+      &:nth-child(2n+0), &:last-child, &:nth-child(9){
+        display: none;
+      }
+    }
+
+    img{
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      transition: all .3s ease;
+      border-radius: var(--border-radius);
+
+      &.cover{
+        z-index: 2;
+        &:hover{
+          transform: scale(1.05);
+        }
+      }
+
+
+    }
+  }
+  .vinyles{
+    position: absolute;
+    left: 67.5%;
+    z-index: 0;
+    box-shadow:none;
+
+    img{
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+#carroussel-index{
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  background: var(--mygradient);
+  border-radius: var(--border-radius);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  filter: brightness(0);
+}
+
+.active.carousel-item-start,
+.active.carousel-item-end,
+.carousel-item.active,
+.carousel-item-next.carousel-item-start,
+.carousel-item-prev.carousel-item-end{
+  transition-delay: 2.4s;
+
+  @media screen and (max-width:770px){
+    transition-delay: 0s;
+  }
+
+}
+.return img{
+  width: 2rem;
+}
+.return{
+  padding-right: 1rem;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: center;
+  top : 91%;
+}
+
+.return div{
+  text-align: center;
+  width: 6rem;
+}
+
+@media screen and (max-width:970px){
+  .return img{
+    width: 1rem;
+  }
+}
+
+@media screen and (max-width:770px){
+  .return{
+    padding-right: 0;
+  }
+}

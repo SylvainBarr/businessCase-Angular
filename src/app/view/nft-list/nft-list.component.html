@@ -1,1 +1,36 @@
-<p>nft-list works!</p>
+<!-- Barre de recherche de la gallerie -->
+
+<form id = 'search-menu'>
+    <div class="search-form">
+        <input class="search-bar rounded-start" type="text" value=""
+               (input)="onChangeSearch($event)">
+        <div class="search-submit"></div>
+    </div>
+    <p class="tri">
+        <select class="form-select rounded-end" aria-label="Default select example"
+        (change)="filterChange($event)" >
+            <option value="groupe.name">Groupe</option>
+            <option value="groupe.genre.name">Style</option>
+            <option value="name" selected>Nom</option>
+
+        </select>
+        <span> &nbsp;Trier par :</span>
+    </p>
+</form>
+
+
+
+<!-- Affichage de la gallerie des NFT -->
+
+<section class="gallerie"
+         infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="50"
+         (scrolled)="onScroll()">
+    <div class="card card-main-galery" *ngFor="let nft of nftList">
+        <a href=""><img src="{{nft.image}}" class="card-img-top" alt=""></a>
+        <div class="card-body">
+            <p class="card-text">{{nft.name}}</p>
+        </div>
+    </div>
+</section>

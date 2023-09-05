@@ -1,12 +1,10 @@
 <!-- Header du site qui restera identique sur les différentes pages -->
 <header>
-    <a href=""><img src="http://127.0.0.1:8000/img/logo-businesscase.webp" alt="Logo du site de NFT de Tatty Josy"></a>
+    <a href=""><img src="assets/img/logo-businesscase.webp" alt="Logo du site de NFT de Tatty Josy"></a>
     <h1 class = "short display-5">B<span class="display-6">urn </span>Y<span class="display-6">our </span>C<span class="display-6">rypto</span></h1>
     <button class="btn btn-outline-dark bouton-menu" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#menu-slide" aria-controls="menu-slide">
-        <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
-        </svg>
+        <fa-icon [icon]="faBars" size="2xl"></fa-icon>
     </button>
 
     <!-- Nav qui sera masquée tant qu'on ne clique pas sur le bouton de menu -->
@@ -27,9 +25,9 @@
             </ul>
             <div class="nav2">
                 <ul>
-                    <li><a href="#" class="btn btn-outline-dark">Inscription</a></li>
+                    <li><a href="#" class="btn btn-outline-dark button-inscription" title="Inscription"><span><fa-icon [icon]="faSignUp" size="xl"></fa-icon></span></a></li>
                     <li>
-                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Connexion-backdrop">Connexion
+                        <button type="button" class="btn btn-outline-dark button-connexion" data-bs-toggle="modal" data-bs-target="#Connexion-backdrop" title="Connexion"><span><fa-icon [icon]="faSignIn" size="xl"></fa-icon></span>
                         </button>
                     </li>
                 </ul>

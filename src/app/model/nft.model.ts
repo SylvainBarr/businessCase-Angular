@@ -3,7 +3,7 @@ export interface NftHttp {
   name: string
   image: string
   identificationToken: string
-  group: {
+  groupe: {
     id: number
     name: string
     genre: {
@@ -31,7 +31,7 @@ export interface NftHttpExtended extends NftHttp {
       id: number
     }
   }
-  group: {
+  groupe: {
     id: number
     name: string
     genre: {
@@ -100,14 +100,14 @@ export namespace Nft {
       image: nftHttp.image,
       identificationToken: nftHttp.identificationToken,
       group: {
-        id: nftHttp.group.id,
-        name: nftHttp.group.name,
+        id: nftHttp.groupe.id,
+        name: nftHttp.groupe.name,
         genre: {
-          id: nftHttp.group.genre.id,
-          name: nftHttp.group.genre.name,
-          slug: nftHttp.group.genre.slug
+          id: nftHttp.groupe.genre.id,
+          name: nftHttp.groupe.genre.name,
+          slug: nftHttp.groupe.genre.slug
         },
-        slug: nftHttp.group.slug
+        slug: nftHttp.groupe.slug
       },
       slug: nftHttp.slug
     }

@@ -19,6 +19,9 @@ import { ProfileComponent } from './view/profile/profile.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NotFoundComponent } from './view/not-found/not-found.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {InfiniteScrollModule} from "ngx-infinite-scroll";
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { NotFoundComponent } from './view/not-found/not-found.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

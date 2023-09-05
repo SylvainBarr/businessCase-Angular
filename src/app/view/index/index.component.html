@@ -1,1 +1,67 @@
-<p>index works!</p>
+
+
+<section class="presentation">
+  <div class="presentation-head">
+    <img id="logo" src="assets/img/logo-businesscase.webp" alt="Logo du site de NFT de Tatty Josy">
+  </div>
+  <h3 class="display-2 main-title">Burn Your Crypto</h3>
+  <br>
+  <p>Amateurs de NFT et de métal, bienvenue sur Burn Your Crypto. <br> Tatty Josy, grande fan de métal a
+    décidé de se lancer dans l'aventure des NFT. Ici, vous pourrez afficher, consulter et suivre le cours des NFT
+    de pochettes d'album de groupes de métal que vous possedez.</p>
+</section>
+<div class="return">
+  <a href="#"><img src="assets/img/angles-up.svg" alt="fleches vers le haut"></a>
+</div>
+
+<section>
+  <h2 id="last">Les derniers ajouts</h2>
+
+  <div id="carroussel-index" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="nfts">
+          <div *ngFor="let nft of firstCar"><img src="{{nft.image}}" alt="{{nft.name}}"></div>
+
+          <div class="vinyles">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+          </div>
+        </div>
+
+      </div>
+      <div class="carousel-item">
+        <div class="nfts">
+          <div *ngFor="let nft of secondCar"><img src="{{nft.image}}" alt="{{nft.name}}"></div>
+
+          <div class="vinyles">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="nfts">
+          <div *ngFor="let nft of thirdCar"><img src="{{nft.image}}" alt="{{nft.name}}"></div>
+
+          <div class="vinyles">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+            <img class="vinyle" src="assets/img/Vinyle.png" alt="Un vinyle">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="vinyleAnimation()" class="carousel-control-prev" type="button" data-bs-target="#carroussel-index" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button (click)="vinyleAnimation()" class="carousel-control-next" type="button" data-bs-target="#carroussel-index" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</section>
