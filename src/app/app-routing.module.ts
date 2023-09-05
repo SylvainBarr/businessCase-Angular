@@ -18,8 +18,9 @@ const routes: Routes = [
   {path: 'home', component: IndexComponent},
   {path: 'nfts', children: [
           {path: '', component: NftListComponent},
+          {path: 'my-gallery', canActivate: [authGuard], component: UserNftListComponent},
           {path: ':userId', canActivate: [authGuard], component: UserNftListComponent},
-          {path: 'my-gallery', canActivate: [authGuard], component: UserNftListComponent}
+
       ]},
   {path: 'contact', canActivate: [authGuard], component: ContactComponent},
   {path: 'about', component: AboutComponent},

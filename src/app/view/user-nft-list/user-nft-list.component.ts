@@ -8,6 +8,8 @@ import jwt_decode from "jwt-decode";
 
 import {CoursEthService} from "../../service/cours-eth/cours-eth.service";
 import {ChartConfiguration, ChartOptions} from "chart.js";
+import {User} from "../../model/user.model";
+import {UserService} from "../../service/user/user.service";
 
 
 @Component({
@@ -21,6 +23,9 @@ export class UserNftListComponent implements OnInit{
   token$!: Observable<string>
   token!: string
   coursEth!: [number, number][]
+  totalValue: number = 0
+  decodedToken!: {iat: number, exp: number, username: string, nickname: string, id: number}
+  user$?: Promise<User>
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
@@ -79,7 +84,8 @@ export class UserNftListComponent implements OnInit{
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
               private acquisitionService: AcquisitionService,
-              private coursEthService: CoursEthService
+              private coursEthService: CoursEthService,
+              private userService: UserService
   ) {
   }
 
@@ -87,15 +93,18 @@ export class UserNftListComponent implements OnInit{
   ngOnInit() {
     this.token$ = this.authService.token$
     console.log(this.token$)
-    const userId = this.route.snapshot.paramMap.get('id')
+    const userId = this.route.snapshot.paramMap.get('userId')
 
     if(userId){
-        this.acquisitions$ = this.acquisitionService.getAllAcquisitionsByUser(parseInt(userId))
+      this.acquisitions$ = this.acquisitionService.getAllAcquisitionsByUser(parseInt(userId))
+      this.user$ = this.userService.getUserById(parseInt(userId))
     }else{
       this.token$.subscribe((token: string) => this.token = token)
-      let decodedToken: {iat: number, exp: number, username: string, nickname: string, id: number} = jwt_decode(this.token)
-      this.acquisitions$ = this.acquisitionService.getAllAcquisitionsByUser(decodedToken.id)
+      this.decodedToken = jwt_decode(this.token)
+      this.acquisitions$ = this.acquisitionService.getAllAcquisitionsByUser(this.decodedToken.id)
     }
+
+    this.acquisitions$.then(acquisitions => acquisitions.map(a => this.totalValue += a.value))
 
     this.coursEthService.getEthereumHistory()
         .then(data =>{

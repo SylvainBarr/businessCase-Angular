@@ -19,7 +19,7 @@ export class AcquisitionService {
   getAllAcquisitionsByUser(userId: number): Promise<Acquisition[]>{
     return firstValueFrom(
       this.http
-        .get<{'hydra:member' : Acquisition[]}>(this.baseApiUrl + 'acquisitions?page=1&user.id='+ userId +'&isSold%5B%5D=false')
+        .get<{'hydra:member' : Acquisition[]}>(this.baseApiUrl + 'acquisitions?page=1&pagination=false&user.id='+ userId +'&isSold%5B%5D=false')
         .pipe(
           map(response => response['hydra:member'].map(aH => Acquisition.fromAcquisitionHttpToAcquisition(aH)))
         )
