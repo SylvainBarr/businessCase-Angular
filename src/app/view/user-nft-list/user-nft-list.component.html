@@ -1,7 +1,15 @@
 
 <div class="row my-5">
-  <div class="col-4 my-gallery-info position-fixed rounded">
-
+  <div class="col-4 my-gallery-info position-fixed rounded p-3">
+    <div class="my-chart d-block">
+      <canvas baseChart width="400" height="150"
+              [type]="'line'"
+              [datasets]="lineChartData.datasets"
+              [labels]="lineChartData.labels"
+              [options]="lineChartOptions"
+              >
+      </canvas>
+    </div>
   </div>
 
   <div class="col-8 d-flex flex-wrap flex-row justify-content-evenly" >

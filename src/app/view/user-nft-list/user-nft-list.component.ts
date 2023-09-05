@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Acquisition} from "../../model/acquisition.model";
 import {Observable} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {AuthService} from "../../service/auth/auth.service";
 import {AcquisitionService} from "../../service/acquisition/acquisition.service";
 import jwt_decode from "jwt-decode";
-import {CoursEth} from "../../model/cours-eth.model";
+
 import {CoursEthService} from "../../service/cours-eth/cours-eth.service";
+import {ChartConfiguration, ChartOptions} from "chart.js";
+
 
 @Component({
   selector: 'app-user-nft-list',
@@ -18,7 +20,61 @@ export class UserNftListComponent implements OnInit{
   acquisitions$!: Promise<Acquisition[]>
   token$!: Observable<string>
   token!: string
-  coursEth$!: Promise<number[][]>
+  coursEth!: [number, number][]
+
+  public lineChartData: ChartConfiguration<'line'>['data'] = {
+    labels: [],
+    datasets: []
+  }
+  public lineChartOptions: ChartOptions<'line'> = {
+    responsive: true,
+    borderColor: 'rgba(0, 0, 0, 0.5)',
+    scales: {
+      x: {
+        grid: {
+          display: true,
+          color: 'rgba(255, 255, 255, 0)'
+        },
+        border: {
+          color: '#000',
+          width: 1
+        },
+        ticks: {
+          display: true,
+          color: '#FFF',
+          font: {
+            family: 'Poppins',
+            weight: 'bold'
+          }
+        }
+      },
+      y0: {
+        min: 0,
+        grid: {
+          display: true,
+          color: 'rgba(0, 0, 0, 0)'
+        },
+        border: {
+          color: '#000',
+          width: 1
+        },
+        position: 'left',
+        ticks: {
+          color: '#E0CB0B',
+          font: {
+            family: 'Poppins',
+            weight: 'bold'
+          }
+        }
+      },
+    },
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
+  }
+
 
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
@@ -41,8 +97,33 @@ export class UserNftListComponent implements OnInit{
       this.acquisitions$ = this.acquisitionService.getAllAcquisitionsByUser(decodedToken.id)
     }
 
-    this.coursEth$ = this.coursEthService.getEthereumHistory()
-      console.log(this.coursEth$)
+    this.coursEthService.getEthereumHistory()
+        .then(data =>{
+          this.coursEth = data
+
+          let myData: number[] = []
+          this.coursEth.forEach((day) => {
+            console.log(day)
+            this.lineChartData.labels!.push(new Date(day[0]).toLocaleDateString())
+            myData.push(day[1])
+          })
+          this.lineChartData.datasets = [
+            {
+              data: myData,
+              label: 'Ethereum',
+              yAxisID: 'y0',
+              pointBackgroundColor: '#000',
+              pointBorderColor: '#FFF',
+              fill: true,
+              borderColor: 'black',
+              backgroundColor: 'rgba(0,0,0,0.3)'
+            }
+          ]
+          console.log(this.lineChartData)
+
+        })
+
+
 
 
   }

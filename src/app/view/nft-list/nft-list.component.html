@@ -25,7 +25,7 @@
 <section class="gallerie"
          infiniteScroll
          [infiniteScrollDistance]="2"
-         [infiniteScrollThrottle]="50"
+         [infiniteScrollThrottle]="150"
          (scrolled)="onScroll()">
     <div class="card card-main-galery" *ngFor="let nft of nftList">
         <a href=""><img src="{{nft.image}}" class="card-img-top" alt=""></a>

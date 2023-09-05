@@ -2,6 +2,7 @@
   background: var(--mygradient);
   height: 400px;
   right: 2rem;
+  position: relative;
 }
 .card-text{
   color: black;
@@ -12,4 +13,10 @@
   background: var(--mygradient);
   margin-bottom: 1rem;
   width: 18rem;
+}
+.my-chart{
+
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
 }
