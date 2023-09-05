@@ -11,4 +11,9 @@ export class HeaderComponent {
   faSignIn = faRightToBracket
   faSignOut = faRightFromBracket
   faSignUp = faUserPlus
+
+  onClickClose() {
+    const modalClose: HTMLElement|null = document.querySelector('.offcanvas .btn-close')
+    modalClose!.click()
+  }
 }

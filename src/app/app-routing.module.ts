@@ -11,6 +11,7 @@ import {ProfileComponent} from "./view/profile/profile.component";
 import {SignUpComponent} from "./view/sign-up/sign-up.component";
 import {authGuard} from "./guard/auth/auth.guard";
 import {NotFoundComponent} from "./view/not-found/not-found.component";
+import {NotLoggedComponent} from "./view/not-logged/not-logged.component";
 
 const routes: Routes = [
   {path: '', pathMatch: "full", redirectTo: 'home'},
@@ -28,6 +29,7 @@ const routes: Routes = [
   },
   {path: 'profile', canActivate: [authGuard], component: ProfileComponent},
   {path: 'sign-up', component: SignUpComponent},
+  {path: 'not-logged', component: NotLoggedComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: 'not-found'}
 ];

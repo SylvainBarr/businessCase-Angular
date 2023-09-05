@@ -27,7 +27,13 @@
                 <ul>
                     <li><a href="#" class="btn btn-outline-dark button-inscription" title="Inscription"><span><fa-icon [icon]="faSignUp" size="xl"></fa-icon></span></a></li>
                     <li>
-                        <button type="button" class="btn btn-outline-dark button-connexion" data-bs-toggle="modal" data-bs-target="#Connexion-backdrop" title="Connexion"><span><fa-icon [icon]="faSignIn" size="xl"></fa-icon></span>
+                        <button type="button"
+                                class="btn btn-outline-dark button-connexion"
+                                data-bs-toggle="modal"
+                                data-bs-target="#Connexion-backdrop"
+                                title="Connexion"
+                                (click)="onClickClose()">
+                          <span><fa-icon [icon]="faSignIn" size="xl"></fa-icon></span>
                         </button>
                     </li>
                 </ul>
