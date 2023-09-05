@@ -17,11 +17,11 @@
         </div>
         <div class="offcanvas-body">
             <ul class="nav1">
-                <li><a href="/home">Accueil</a></li>
-                <li><a href="/nfts">Notre Galerie</a></li>
-                <li><a href="/nfts">Mes NFT</a></li>
-                <li><a href="/about">A propos</a></li>
-                <li><a href="/contact">Nous contacter</a></li>
+                <li><a routerLink="/home" (click)="onClickClose()">Accueil</a></li>
+                <li><a routerLink="/nfts" (click)="onClickClose()">Notre Galerie</a></li>
+                <li><a routerLink="/nfts/my-gallery" (click)="onClickClose()">Mes NFT</a></li>
+                <li><a routerLink="/about" (click)="onClickClose()">A propos</a></li>
+                <li><a routerLink="/contact" (click)="onClickClose()">Nous contacter</a></li>
             </ul>
             <div class="nav2">
                 <ul>

@@ -1,1 +1,15 @@
-<p>user-nft-list works!</p>
+
+<div class="row my-5">
+  <div class="col-4 my-gallery-info position-fixed rounded">
+
+  </div>
+
+  <div class="col-8 d-flex flex-wrap flex-row justify-content-evenly" >
+    <div class="card card-main-galery" *ngFor="let acquisition of acquisitions$|async">
+      <a [routerLink]="['/', 'nft', acquisition.nft.id]"><img src="{{acquisition.nft.image}}" class="card-img-top" alt=""></a>
+      <div class="card-body">
+        <p class="card-text">{{acquisition.nft.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,7 +27,7 @@ export class AuthService {
       this.http
         .post<{token: string}>(this.baseApiUrl + 'login_check', credentials)
         .pipe(
-          map(res=> this.tokenSubject$.next(res.token))
+          map(response=> this.tokenSubject$.next(response.token))
         )
     )
   }

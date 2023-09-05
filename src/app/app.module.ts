@@ -22,6 +22,7 @@ import { NotFoundComponent } from './view/not-found/not-found.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { NotLoggedComponent } from './view/not-logged/not-logged.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { NotLoggedComponent } from './view/not-logged/not-logged.component';
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

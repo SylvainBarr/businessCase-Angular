@@ -140,3 +140,23 @@ h2{
     padding-right: 0;
   }
 }
+#logo{
+  display: block;
+  width: 200px;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width:770px){
+  #logo{
+    width: 100px
+  }
+}
+
+.carousel-control-next{
+  margin-right: 2rem;
+}
+
+.carousel-control-prev{
+  margin-left: 2rem;
+}
