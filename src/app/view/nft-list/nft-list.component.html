@@ -29,7 +29,7 @@
          [infiniteScrollThrottle]="150"
          (scrolled)="onScroll()">
     <div class="card card-main-galery" *ngFor="let nft of nftList">
-        <a href=""><img src="{{nft.image}}" class="card-img-top" alt=""></a>
+        <a [routerLink]="['/', 'nft', nft.id]"><img src="{{nft.image}}" class="card-img-top" alt=""></a>
         <div class="card-body">
             <p class="card-text">{{nft.name}}</p>
         </div>

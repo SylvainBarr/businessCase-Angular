@@ -3,6 +3,7 @@ import {Nft} from "../../model/nft.model";
 import {NftResponsePromise, NftService} from "../../service/nft/nft.service";
 import {AuthService} from "../../service/auth/auth.service";
 import anime, {AnimeInstance} from "animejs";
+import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',

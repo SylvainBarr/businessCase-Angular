@@ -25,7 +25,6 @@ const routes: Routes = [
   {path: 'contact', canActivate: [authGuard], component: ContactComponent},
   {path: 'about', component: AboutComponent},
   {path: 'nft', canActivate: [authGuard], children: [
-          {path: '', component: NftDetailComponent},
           {path: ':id', component: NftDetailComponent },
           {path: 'new', component: NewNftComponent }
       ]

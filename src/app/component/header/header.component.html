@@ -19,15 +19,19 @@
             <ul class="nav1">
                 <li><a routerLink="/home" (click)="onClickClose()">Accueil</a></li>
                 <li><a routerLink="/nfts" (click)="onClickClose()">Notre Galerie</a></li>
-                <li><a routerLink="/nfts/my-gallery" (click)="onClickClose()">Mes NFT</a></li>
+                <li *ngIf="token$|async"><a routerLink="/nfts/my-gallery" (click)="onClickClose()">Mes NFT</a></li>
                 <li><a routerLink="/about" (click)="onClickClose()">A propos</a></li>
-                <li><a routerLink="/contact" (click)="onClickClose()">Nous contacter</a></li>
+                <li *ngIf="token$|async"><a routerLink="/contact" (click)="onClickClose()">Nous contacter</a></li>
             </ul>
             <div class="nav2">
                 <ul>
-                    <li><a href="#" class="btn btn-outline-dark button-inscription" title="Inscription"><span><fa-icon [icon]="faSignUp" size="xl"></fa-icon></span></a></li>
+                    <li><a [routerLink]="['/','sign-up']" (click)="onClickClose()" *ngIf="!(token$|async)" class="btn btn-outline-dark button-inscription" title="Inscription"><span><fa-icon [icon]="faSignUp" size="xl"></fa-icon></span></a>
+                      <a [routerLink]="['/','profile']" *ngIf="token$|async" (click)="onClickClose()" class="btn btn-outline-dark button-profil" title="Mon profil">Mon profil</a>
+                    </li>
+
                     <li>
                         <button type="button"
+                                *ngIf="!(token$|async)"
                                 class="btn btn-outline-dark button-connexion"
                                 data-bs-toggle="modal"
                                 data-bs-target="#Connexion-backdrop"
@@ -35,6 +39,14 @@
                                 (click)="onClickClose()">
                           <span><fa-icon [icon]="faSignIn" size="xl"></fa-icon></span>
                         </button>
+                      <button type="button"
+                              *ngIf="token$|async"
+                              class="btn btn-outline-dark button-deconnexion"
+
+                              title="Déconnexion"
+                              (click)="onClickCloseAndDisconnect()">
+                        <span><fa-icon [icon]="faSignOut" size="xl"></fa-icon></span>
+                      </button>
                     </li>
                 </ul>
             </div>

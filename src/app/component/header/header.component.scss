@@ -127,11 +127,17 @@ header{
   justify-content: space-evenly;
 }
 
+.button-inscription, .button-connexion, .button-deconnexion{
+  transition: all .3s ease-in-out;
+  position: relative;
+}
+
 .button-inscription:hover span:after{
   content: " Inscription";
-  transition: 0.2s ease-in-out;
 }
 .button-connexion:hover span:after{
   content: " Connexion";
-  transition: 0.2s ease-in-out;
+}
+.button-deconnexion:hover span:after{
+  content: " Déconnexion";
 }

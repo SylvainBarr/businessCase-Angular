@@ -30,7 +30,7 @@ export interface NftHttpExtended extends NftHttp {
       nickname: string
       id: number
     }
-  }
+  }[]
   groupe: {
     id: number
     name: string
@@ -76,7 +76,7 @@ export interface NftExtended extends Nft {
       nickname: string
       id: number
     }
-  }
+  }[]
   group: {
     id: number
     name: string

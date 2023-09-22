@@ -17,12 +17,13 @@ import { NewNftComponent } from './view/new-nft/new-nft.component';
 import { SignUpComponent } from './view/sign-up/sign-up.component';
 import { ProfileComponent } from './view/profile/profile.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { NotLoggedComponent } from './view/not-logged/not-logged.component';
 import { NgChartsModule } from 'ng2-charts';
+import {AuthInterceptor} from "./interceptor/auth/auth.interceptor";
 
 
 @NgModule({
@@ -54,7 +55,9 @@ import { NgChartsModule } from 'ng2-charts';
     InfiniteScrollModule,
     NgChartsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

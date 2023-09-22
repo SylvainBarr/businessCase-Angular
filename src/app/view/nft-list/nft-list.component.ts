@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {NftResponsePromise, NftService} from "../../service/nft/nft.service";
+import {NftService} from "../../service/nft/nft.service";
 import {Nft} from "../../model/nft.model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-nft-list',
@@ -17,13 +18,15 @@ export class NftListComponent implements OnInit{
   prev!: string
   isLoading: boolean = false
 
-  constructor(private nftService : NftService, private route: ActivatedRoute) {
+  constructor(private nftService : NftService, private route: ActivatedRoute, private router: Router) {
   }
 
 
   ngOnInit() {
     let myTitle: HTMLElement|null = document.querySelector('.short');
     myTitle!.style.opacity = '1';
+
+
 
 
     this.nftService.getAllNfts()

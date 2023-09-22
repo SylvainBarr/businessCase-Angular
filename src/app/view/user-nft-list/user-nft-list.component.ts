@@ -92,7 +92,7 @@ export class UserNftListComponent implements OnInit{
 
   ngOnInit() {
     this.token$ = this.authService.token$
-    console.log(this.token$)
+
     const userId = this.route.snapshot.paramMap.get('userId')
 
     if(userId){
@@ -112,7 +112,7 @@ export class UserNftListComponent implements OnInit{
 
           let myData: number[] = []
           this.coursEth.forEach((day) => {
-            console.log(day)
+
             this.lineChartData.labels!.push(new Date(day[0]).toLocaleDateString())
             myData.push(day[1])
           })
@@ -128,7 +128,7 @@ export class UserNftListComponent implements OnInit{
               backgroundColor: 'rgba(0,0,0,0.3)'
             }
           ]
-          console.log(this.lineChartData)
+
 
         })
 

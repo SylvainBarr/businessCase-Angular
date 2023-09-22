@@ -4,7 +4,6 @@ export interface UserHttp{
   createdAt: Date
   profilePicture: string
   nickname: string
-  birthDate: Date
   address: {
     id: number
     firstLine: string
@@ -23,7 +22,6 @@ export interface User{
   createdAt: Date
   profilePicture: string
   nickname: string
-  birthDate: Date
   address: {
     id: number
     firstLine: string
@@ -44,7 +42,6 @@ export namespace User{
       createdAt: userHttp.createdAt,
       profilePicture: userHttp.profilePicture,
       nickname: userHttp.nickname,
-      birthDate: userHttp.birthDate,
       address: {
         id: userHttp.address.id,
         firstLine: userHttp.address.firstLine,

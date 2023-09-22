@@ -1,1 +1,20 @@
-<p>nft-detail works!</p>
+<div class="row" *ngIf="nft$|async as nft">
+  <div class="col-lg-8 col-sm-12 my-3 p-3">
+    <img src="{{nft.image}}" alt="{{nft.name}}">
+    <br>
+    <p class="small my-3">Token : {{nft.identificationToken}}</p>
+  </div>
+
+  <div class="col-lg-4 col-sm-12 my-3 pe-5">
+    <h2>{{nft.name}}</h2>
+    <hr/>
+    <p>Année de l'album : {{nft.anneeAlbum}}</p>
+    <p>Groupe : {{nft.group.name}}</p>
+    <p>Genre : {{nft.group.genre.name}}</p>
+
+    <p>Date de drop: {{ nft.dateDrop|date:'dd/LL/Y'}} : </p>
+    <div *ngFor="let acquisition of nft.acquisitions">
+      <p *ngIf="acquisition.isSold == false">Prix d'achat : {{acquisition.value}}</p>
+    </div>
+  </div>
+</div>

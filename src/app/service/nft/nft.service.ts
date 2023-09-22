@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Nft, NftHttp} from "../../model/nft.model";
+import {Nft, NftExtended, NftHttp, NftHttpExtended} from "../../model/nft.model";
 import {firstValueFrom, map} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Environment} from "../../environment/environment";
@@ -65,4 +65,13 @@ export class NftService {
                 )
         )
     }
+
+  getById(id: number):Promise<NftExtended> {
+    return firstValueFrom(
+      this.http
+        .get<NftHttpExtended>(this.baseApiUrl+'nfts/'+id)
+        .pipe(
+          map(nftExtendedHttp => Nft.fromNftExtendedHttpToNftExtended(nftExtendedHttp)))
+    )
+  }
 }
